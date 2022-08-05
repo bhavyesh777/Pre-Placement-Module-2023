@@ -1,3 +1,8 @@
+# Python program to delete a node in a linked list
+# at a given position
+
+# Node class
+
 
 class Node:
 
@@ -61,5 +66,4 @@ llist.printList()
 llist.deleteNode(4)
 print("\nLinked List after Deletion at position 4: ")
 llist.printList()
-
 
