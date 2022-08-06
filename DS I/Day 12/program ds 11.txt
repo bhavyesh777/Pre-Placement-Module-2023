@@ -1,0 +1,70 @@
+# Program to demonstrate customized data structure
+# which supports functions in O(1)
+import sys
+
+stack = []
+Min = sys.maxsize
+
+# Utility function for adding a new element
+def addElement(x):
+	
+	global Min, stack
+	if (len(stack) == 0 or x < Min):
+		Min = x
+	pair = [x, Min]
+	stack.append(pair)
+	print(x, "inserted successfully")
+
+# Utility function for returning last
+# element of stack
+def getLastElement():
+	
+	global Min, stack
+	
+	if (len(stack) == 0):
+		print("UnderFlow Error")
+		return -1
+	else:
+		return stack[-1][0]
+
+# Utility function for removing last
+# element successfully;
+def removeLastElement():
+	
+	global Min, stack
+	if (len(stack) == 0):
+		print("UnderFlow Error")
+	elif (len(stack) > 1):
+		Min = stack[-2][1]
+	else:
+		Min = sys.maxsize
+	stack.pop()
+	
+	print("removed successfully")
+
+# Utility function for returning min
+# element till now;
+def getMin():
+	
+	global Min, stack
+	if (len(stack) == 0):
+		print("UnderFlow Error")
+		return -1
+		
+	return stack[-1][1]
+
+# Driver code
+addElement(5)
+addElement(7)
+addElement(3)
+print("min element ::", getMin())
+removeLastElement()
+addElement(2)
+addElement(9)
+print("Last element ::", getLastElement())
+addElement(0)
+print("min element ::", getMin())
+removeLastElement()
+addElement(11)
+print("min element ::", getMin())
+
